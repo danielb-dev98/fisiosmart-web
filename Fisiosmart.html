@@ -1,0 +1,1505 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fisiosmart · Fisioterapia familiar en Las Rozas · El Cantizal</title>
+<meta name="description" content="Clínica de fisioterapia familiar en Las Rozas (El Cantizal). Especialistas en bebés, embarazadas, deportistas y adultos. Pide cita por WhatsApp." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+
+<style>
+  /* ===== DESIGN TOKENS ===== */
+  :root {
+    --cream:       #FAF8F4;
+    --cream-dark:  #F2EDE4;
+    --forest:      #0C3728;
+    --forest-mid:  #14503A;
+    --sage:        #1D9E75;
+    --sage-600:    #178862;
+    --sage-50:     #EAF7F1;
+    --sage-100:    #C9EBD9;
+    --gold:        #C5954A;
+    --gold-light:  #F5EDD9;
+    --ink:         #1A1F1C;
+    --body:        #3D453F;
+    --mist:        #6B7570;
+    --line:        #E4E8E5;
+    --line-warm:   #E8E2D8;
+    --white:       #ffffff;
+    --shadow-sm:   0 1px 3px rgba(12,55,40,.06);
+    --shadow:      0 4px 16px -4px rgba(12,55,40,.10);
+    --shadow-lg:   0 16px 48px -12px rgba(12,55,40,.14);
+    --shadow-xl:   0 24px 64px -16px rgba(12,55,40,.18);
+    --radius:      16px;
+    --radius-lg:   24px;
+    --radius-xl:   32px;
+    --container:   1200px;
+    --h1:          clamp(38px, 5.5vw, 64px);
+    --h2:          clamp(28px, 3.5vw, 42px);
+    --font-serif:  'Fraunces', Georgia, serif;
+    --font-sans:   'DM Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--body);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    color: var(--ink);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 16px;
+    font-weight: 400;
+    text-wrap: balance;
+  }
+  h1 { font-size: var(--h1); font-weight: 300; letter-spacing: -0.03em; }
+  h2 { font-size: var(--h2); }
+  h3 { font-size: 22px; font-weight: 400; }
+  p  { margin: 0 0 14px; }
+  a  { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+
+  .container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 28px; }
+
+  /* eyebrow label */
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--font-sans); font-size: 12px; font-weight: 500;
+    color: var(--sage); text-transform: uppercase; letter-spacing: .14em;
+    margin-bottom: 16px;
+  }
+  .eyebrow::before { content:""; width:24px; height:1.5px; background:var(--sage); border-radius:2px; }
+
+  .section { padding: clamp(72px,10vw,120px) 0; }
+  .section--white  { background: var(--white); }
+  .section--cream  { background: var(--cream); }
+  .section--warm   { background: var(--cream-dark); }
+  .section--forest { background: var(--forest); }
+
+  .section-head { max-width: 680px; margin: 0 auto clamp(40px,6vw,64px); text-align: center; }
+  .section-head p { color: var(--mist); font-size: 17px; margin: 0 auto; }
+
+  /* ===== BUTTONS ===== */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 15px 26px; border-radius: 100px;
+    font-family: var(--font-sans); font-weight: 500; font-size: 15px;
+    transition: all .2s ease; white-space: nowrap; letter-spacing: .01em;
+  }
+  .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+  .btn--primary { background: var(--sage); color: var(--white); box-shadow: 0 4px 20px -6px rgba(29,158,117,.45); }
+  .btn--primary:hover { background: var(--sage-600); transform: translateY(-2px); box-shadow: 0 8px 28px -6px rgba(29,158,117,.5); }
+  .btn--outline { background: transparent; color: var(--ink); border: 1.5px solid var(--line-warm); }
+  .btn--outline:hover { border-color: var(--ink); transform: translateY(-1px); }
+  .btn--white { background: var(--white); color: var(--forest); font-weight: 600; }
+  .btn--white:hover { background: var(--cream); transform: translateY(-2px); }
+  .btn--ghost-white { background: transparent; color: rgba(255,255,255,.85); border: 1.5px solid rgba(255,255,255,.3); }
+  .btn--ghost-white:hover { border-color: rgba(255,255,255,.7); color: var(--white); }
+  .btn--lg  { padding: 18px 30px; font-size: 16px; }
+  .btn--block { width: 100%; }
+
+  /* ===== NAV ===== */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(250,248,244,.88);
+    backdrop-filter: saturate(150%) blur(14px);
+    -webkit-backdrop-filter: saturate(150%) blur(14px);
+    border-bottom: 1px solid transparent;
+    transition: border-color .25s ease, background .25s ease;
+  }
+  .nav.is-scrolled { border-bottom-color: var(--line-warm); background: rgba(250,248,244,.97); }
+  .nav__inner { display:flex; align-items:center; justify-content:space-between; height:68px; }
+
+  .logo { display:inline-flex; align-items:center; font-family:var(--font-serif); font-weight:400; font-size:22px; color:var(--ink); letter-spacing:-0.02em; }
+  .logo__fisio { color:var(--ink); font-weight:400; }
+  .logo__smart { color:var(--sage); font-weight:700; }
+
+  .nav__links { display:flex; align-items:center; gap:36px; font-size:14px; color:var(--mist); }
+  .nav__links a { position:relative; padding:6px 0; transition:color .2s ease; }
+  .nav__links a:hover { color:var(--ink); }
+  .nav__links a::after { content:""; position:absolute; bottom:0; left:0; right:0; height:1.5px; background:var(--sage); transform:scaleX(0); transition:transform .2s ease; border-radius:2px; }
+  .nav__links a:hover::after { transform:scaleX(1); }
+
+  .nav__cta { display:flex; align-items:center; gap:10px; }
+  .nav__cta .btn--outline { padding:10px 18px; font-size:14px; }
+  .nav__cta .btn--primary { padding:10px 20px; font-size:14px; }
+
+  .nav__burger {
+    display:none; width:44px; height:44px; border-radius:12px;
+    align-items:center; justify-content:center; flex-direction:column; gap:5px;
+    border:1px solid var(--line-warm); background:var(--white); padding:0;
+  }
+  .nav__burger span { width:20px; height:1.5px; background:var(--ink); display:block; transition:transform .25s ease, opacity .25s ease; border-radius:2px; }
+  .nav.is-open .nav__burger span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+  .nav.is-open .nav__burger span:nth-child(2) { opacity:0; }
+  .nav.is-open .nav__burger span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+
+  /* mobile drawer */
+  .drawer {
+    position:fixed; inset:68px 0 0 0; z-index:49;
+    background:var(--cream); transform:translateY(-8px); opacity:0; pointer-events:none;
+    transition:opacity .25s ease, transform .25s ease;
+    padding:24px 28px 40px; display:flex; flex-direction:column; gap:0;
+    border-top:1px solid var(--line-warm); overflow-y:auto;
+  }
+  .nav.is-open .drawer { opacity:1; pointer-events:auto; transform:translateY(0); }
+  .drawer a {
+    padding:18px 4px; border-bottom:1px solid var(--line-warm);
+    font-size:18px; font-family:var(--font-serif); font-weight:300; color:var(--ink);
+    display:flex; justify-content:space-between; align-items:center; transition:color .2s ease;
+  }
+  .drawer a:hover { color:var(--sage); }
+  .drawer .btn { margin-top:24px; }
+  .drawer .btn--outline { border:1.5px solid var(--line-warm); color:var(--ink); }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: url('fisio_hands_hero.jpg') center right / cover no-repeat;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(to right, rgba(5,40,28,0.92) 0%, rgba(5,40,28,0.85) 45%, rgba(5,40,28,0.3) 75%, transparent 100%);
+  }
+
+  /* Background image layer — hidden, replaced by hero background-image */
+  .hero__bg { display: none; }
+
+  /* Gradient overlay — replaced by ::before */
+  .hero__overlay { display: none; }
+
+  /* Content wrapper */
+  .hero__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: clamp(100px,13vw,140px) 0 clamp(72px,9vw,108px);
+  }
+  .hero__copy { max-width: 620px; }
+
+  .hero__eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 500; color: rgba(255,255,255,.6);
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 24px;
+  }
+  .hero__eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: #7dd9ae; flex-shrink: 0; }
+
+  .hero h1 { font-size: var(--h1); font-weight: 300; line-height: 1.06; letter-spacing: -0.03em; margin-bottom: 24px; color: var(--white); }
+  .hero__accent { color: #7dd9ae; font-style: italic; }
+  .hero__sub { font-size: 17px; color: rgba(255,255,255,.76); line-height: 1.78; max-width: 52ch; margin: 0 0 36px; }
+  .hero__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 40px; }
+
+  /* Ghost button override inside hero (white on dark bg) */
+  .hero .btn--outline {
+    border-color: rgba(255,255,255,.38);
+    color: var(--white);
+    background: rgba(255,255,255,.07);
+    backdrop-filter: blur(4px);
+  }
+  .hero .btn--outline:hover {
+    border-color: rgba(255,255,255,.75);
+    background: rgba(255,255,255,.13);
+    transform: translateY(-1px);
+  }
+
+  .hero__trust { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .hero__trust-item { display: flex; align-items: center; gap: 7px; font-size: 13px; color: rgba(255,255,255,.65); }
+  .hero__trust-item svg { width: 14px; height: 14px; color: #7dd9ae; flex-shrink: 0; }
+
+  /* Floating credential card — bottom-right corner */
+  .hero__float-card {
+    position: absolute;
+    right: clamp(20px,5vw,72px);
+    bottom: clamp(28px,5vw,64px);
+    z-index: 3;
+    background: rgba(255,255,255,.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 20px;
+    padding: 18px 20px;
+    box-shadow: 0 20px 60px -10px rgba(0,0,0,.32);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    max-width: 278px;
+    border: 1px solid rgba(255,255,255,.7);
+  }
+  .hero__float-card .ico { width: 44px; height: 44px; border-radius: 12px; background: var(--sage-50); color: var(--sage); display: grid; place-items: center; flex-shrink: 0; }
+  .hero__float-card .ico svg { width: 22px; height: 22px; }
+  .hero__float-card strong { display: block; color: var(--ink); font-size: 14px; font-family: var(--font-serif); font-weight: 400; }
+  .hero__float-card small { color: var(--mist); font-size: 12px; }
+
+  /* Live status pill — top-right */
+  .hero__pill {
+    position: absolute;
+    top: clamp(80px,11vw,110px);
+    right: clamp(20px,5vw,72px);
+    z-index: 3;
+    background: rgba(255,255,255,.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 100px;
+    padding: 10px 18px;
+    box-shadow: 0 8px 28px -6px rgba(0,0,0,.22);
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 500; color: var(--ink);
+    border: 1px solid rgba(255,255,255,.7);
+  }
+  .hero__pill .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c87a; box-shadow: 0 0 0 3px rgba(34,200,122,.22); }
+
+  /* stats strip */
+  .hero__stats { background: var(--forest); padding: clamp(24px,4vw,40px) 0; }
+  .hero__stats-grid { display: grid; grid-template-columns: repeat(4,1fr); }
+  .hero__stat { text-align: center; padding: 0 24px; border-right: 1px solid rgba(255,255,255,.1); }
+  .hero__stat:last-child { border-right: none; }
+  .hero__stat-star { display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
+  .hero__stat-star svg { width: clamp(20px,2.8vw,30px); height: clamp(20px,2.8vw,30px); color: #F5C842; margin-bottom: 2px; }
+  .hero__stat-num { font-family: var(--font-serif); font-size: clamp(28px,4vw,44px); font-weight: 300; color: var(--white); letter-spacing: -0.03em; line-height: 1; margin-bottom: 6px; }
+  .hero__stat-num em { font-style: normal; color: var(--sage); }
+  .hero__stat-label { font-size: 13px; color: rgba(255,255,255,.5); }
+
+  /* ===== PILLARS ===== */
+  .pillars { display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--line); border-radius:var(--radius-lg); overflow:hidden; }
+  .pillar { padding:40px 36px; border-right:1px solid var(--line); transition:background .25s ease; }
+  .pillar:last-child { border-right:none; }
+  .pillar:hover { background:var(--cream); }
+  .pillar__num { font-family:var(--font-serif); font-size:52px; font-weight:300; color:var(--sage); opacity:.18; line-height:1; margin-bottom:20px; letter-spacing:-0.04em; }
+  .pillar h3 { font-size:19px; margin-bottom:12px; color:var(--forest); }
+  .pillar p { color:var(--mist); font-size:15px; margin:0; }
+
+  /* ===== FEATURED SPECIALTIES ===== */
+  .feat { display:grid; grid-template-columns:1.2fr 1fr 1fr; grid-template-rows:1fr 1fr; gap:16px; height:580px; }
+
+  .feat__card {
+    position:relative; border-radius:var(--radius-lg); overflow:hidden;
+    background:var(--white); border:1px solid var(--line);
+    display:flex; flex-direction:column; justify-content:flex-end; padding:28px;
+    transition:border-color .3s ease, transform .3s ease, box-shadow .3s ease;
+  }
+  .feat__card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+  .feat__card--featured { grid-row:span 2; background:var(--forest); border-color:transparent; }
+  .feat__card--featured:hover { transform:none; box-shadow:none; }
+  .feat__card--featured h3 { color:var(--white); font-size:24px; }
+  .feat__card--featured p { color:rgba(255,255,255,.65); }
+  .feat__card--featured .feat__ico { background:rgba(255,255,255,.12); color:var(--white); }
+  .feat__card--featured .feat__tag { background:var(--sage); color:var(--white); }
+  .feat__card[data-tone="blue"]:hover  { border-color:rgba(55,138,221,.3);  background:#F0F6FD; }
+  .feat__card[data-tone="sand"]:hover  { border-color:rgba(197,149,74,.3);  background:#FBF6EA; }
+  .feat__card[data-tone="ink"]:hover   { border-color:rgba(12,55,40,.2);    background:#EEF4F1; }
+
+  .feat__bg { position:absolute; top:0; right:0; width:60%; height:60%; background:radial-gradient(circle at top right,rgba(29,158,117,.15),transparent 70%); pointer-events:none; }
+  .feat__ico { width:48px; height:48px; border-radius:12px; background:var(--sage-50); color:var(--sage); display:grid; place-items:center; margin-bottom:16px; flex-shrink:0; }
+  .feat__card[data-tone="blue"] .feat__ico { background:#EAF2FB; color:#378ADD; }
+  .feat__card[data-tone="sand"] .feat__ico { background:var(--gold-light); color:var(--gold); }
+  .feat__card[data-tone="ink"]  .feat__ico { background:#E5EDE9; color:var(--forest); }
+  .feat__ico svg { width:24px; height:24px; }
+  .feat__card h3 { color:var(--forest); font-size:19px; margin:0 0 8px; }
+  .feat__card p  { color:var(--mist); font-size:14px; margin:0; line-height:1.6; }
+  .feat__tag { position:absolute; top:18px; left:18px; background:var(--sage-50); color:var(--sage-600); padding:5px 12px; border-radius:100px; font-size:11px; font-weight:500; letter-spacing:.06em; text-transform:uppercase; }
+
+  /* ===== SPECIALTY CARDS ===== */
+  .spec-list { display: flex; flex-direction: column; gap: 24px; }
+  .spec-card {
+    display: flex;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--white);
+    transition: transform .3s ease, box-shadow .3s ease;
+    min-height: 340px;
+  }
+  .spec-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+  .spec-card--reverse { flex-direction: row-reverse; }
+
+  .spec-card__img {
+    flex: 0 0 40%;
+    width: 40%;
+    position: relative;
+    overflow: hidden;
+    min-height: 100%;
+  }
+  .spec-card__img img {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .5s ease;
+  }
+  .spec-card:hover .spec-card__img img { transform: scale(1.05); }
+
+  .spec-card__body {
+    flex: 1;
+    padding: clamp(28px,4vw,48px);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    justify-content: center;
+  }
+  .spec-tag {
+    display: inline-flex; align-items: center;
+    background: var(--sage-50); color: var(--sage-600);
+    font-size: 11px; font-weight: 500;
+    letter-spacing: .08em; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 100px;
+    align-self: flex-start;
+  }
+  .spec-card h3 {
+    font-family: var(--font-serif);
+    font-size: clamp(20px,2.2vw,26px);
+    color: var(--forest);
+    line-height: 1.2;
+    margin: 0;
+    font-weight: 400;
+  }
+  .spec-card__sub {
+    font-size: 16px; color: var(--mist); font-weight: 400;
+    line-height: 1.65; margin: 0;
+  }
+  .spec-card__text {
+    font-size: 15px; color: var(--body); line-height: 1.7; margin: 0;
+  }
+  .spec-bullets {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-wrap: wrap; gap: 6px 20px;
+  }
+  .spec-bullets li {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 14px; color: var(--body);
+  }
+  .spec-bullets li::before {
+    content: ""; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--sage); flex-shrink: 0;
+  }
+  .spec-card__ctas { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 4px; }
+  .spec-link {
+    font-size: 14px; color: var(--sage); font-weight: 500;
+    text-decoration: underline; text-underline-offset: 3px;
+    text-decoration-color: transparent;
+    transition: text-decoration-color .2s ease;
+  }
+  .spec-link:hover { text-decoration-color: var(--sage); }
+
+  .spec-card__num {
+    position: absolute;
+    bottom: -10px;
+    right: 24px;
+    font-family: var(--font-serif);
+    font-size: clamp(80px, 10vw, 120px);
+    font-weight: 800;
+    color: var(--forest);
+    opacity: 0.06;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    transition: opacity .35s ease, transform .35s ease;
+  }
+  .spec-card:hover .spec-card__num {
+    opacity: 0.14;
+    transform: translateY(-4px);
+  }
+  .spec-card__body { position: relative; z-index: 1; }
+  .spec-card__body > *:not(.spec-card__num) { position: relative; z-index: 1; }
+
+  @media (max-width: 768px) {
+    .spec-card, .spec-card--reverse { flex-direction: column; }
+    .spec-card__img { flex: 0 0 240px; height: 240px; width: 100%; min-height: 240px; position: relative; }
+    .spec-card__body { padding: 28px 22px; gap: 12px; }
+  }
+
+  /* ===== SERVICES CAROUSEL ===== */
+  .svc-carousel { position: relative; margin: 0 -28px; }
+  .svc-track {
+    display: flex; gap: 16px;
+    overflow-x: auto; scroll-snap-type: x mandatory;
+    scrollbar-width: none; padding: 0 28px 20px;
+    min-height: 380px; align-items: flex-start;
+  }
+  .svc-track::-webkit-scrollbar { display: none; }
+
+  .svc__card {
+    scroll-snap-align: start; flex-shrink: 0;
+    flex: 0 0 calc(33.333% - 11px);
+    display: flex; flex-direction: column;
+    border-radius: var(--radius-lg); border: 1px solid var(--line);
+    background: var(--white);
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+  .svc__card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+  .svc__img { height: 200px; position: relative; overflow: hidden; flex-shrink: 0; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+  .svc__img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
+  .svc__card:hover .svc__img img { transform: scale(1.04); }
+  .svc__badge {
+    position: absolute; top: 14px; left: 14px;
+    background: var(--white); border-radius: 6px; padding: 4px 10px;
+    font-size: 12px; font-weight: 700; color: var(--forest); line-height: 1;
+  }
+
+  .svc__body {
+    flex: 1; padding: 20px 22px;
+    display: flex; flex-direction: column; gap: 7px;
+  }
+  .svc__card h3 { font-size: 16px; font-weight: 600; color: var(--forest); margin: 0; font-family: var(--font-sans); line-height: 1.3; flex-shrink: 0; }
+  .svc__desc { font-size: 13px; color: var(--mist); line-height: 1.6; margin: 0; }
+  .svc__cta {
+    display: inline-flex; align-items: center; gap: 5px;
+    color: var(--sage); font-weight: 500; font-size: 13px;
+    margin-top: auto; padding-top: 6px; flex-shrink: 0;
+    transition: gap .2s ease;
+  }
+  .svc__cta svg { width: 13px; height: 13px; transition: transform .2s ease; }
+  .svc__card:hover .svc__cta { gap: 8px; }
+  .svc__card:hover .svc__cta svg { transform: translateX(2px); }
+
+  /* arrows */
+  .svc-arrow {
+    position: absolute; z-index: 5;
+    top: 110px; transform: translateY(-50%);
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--white); border: 1px solid var(--line);
+    color: var(--forest); display: grid; place-items: center;
+    cursor: pointer; box-shadow: var(--shadow);
+    transition: background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .svc-arrow svg { width: 18px; height: 18px; }
+  .svc-arrow:hover { background: var(--sage); color: var(--white); border-color: var(--sage); }
+  .svc-arrow--prev { left: -20px; }
+  .svc-arrow--next { right: -20px; }
+  .svc-arrow[hidden] { display: none; }
+
+  /* dots */
+  .svc-dots { display: flex; gap: 6px; justify-content: center; margin-top: 20px; }
+  .svc-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    border: 1.5px solid var(--sage); background: transparent;
+    cursor: pointer; transition: background .2s ease, transform .2s ease;
+    padding: 0;
+  }
+  .svc-dot.is-active { background: var(--sage); transform: scale(1.2); }
+
+  @media (max-width: 900px) {
+    .svc__card { flex: 0 0 calc(50% - 10px); }
+    .svc-track { min-height: 340px; }
+  }
+  @media (max-width: 640px) {
+    .svc__card { flex: 0 0 calc(85% - 8px); }
+    .svc-track { min-height: 300px; }
+    .svc-arrow { top: 80px; }
+    .svc__img { height: 160px; }
+  }
+
+  /* ===== SERVICE EXPAND PANEL ===== */
+  .svc__sep { height: 1px; background: var(--line); margin: 12px 0 0; }
+  .svc__toggle {
+    display: inline-flex; align-items: center; gap: 5px;
+    color: var(--mist); font-size: 13px; font-weight: 400;
+    background: none; border: none; padding: 8px 0 0;
+    cursor: pointer; font-family: var(--font-sans);
+    transition: color .2s ease; line-height: 1;
+  }
+  .svc__toggle svg { width: 14px; height: 14px; flex-shrink: 0; transition: transform .25s ease; }
+  .svc__toggle:hover { color: var(--sage); }
+  .svc__card.is-open .svc__toggle { color: var(--sage); }
+  .svc__card.is-open .svc__toggle .chev { transform: rotate(180deg); }
+  .svc__panel { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+  .svc__card.is-open .svc__panel { max-height: 600px; }
+  .svc__panel-inner {
+    background: var(--cream); border-top: 1px solid var(--line);
+    padding: 16px 0 8px; display: flex; flex-direction: column; gap: 14px;
+    border-radius: 0 0 calc(var(--radius-lg) - 1px) calc(var(--radius-lg) - 1px);
+  }
+  .svc__panel-q { font-size: 10px; font-weight: 600; color: var(--forest); margin: 0 0 4px; text-transform: uppercase; letter-spacing: .08em; }
+  .svc__panel-a { font-size: 13.5px; color: var(--mist); line-height: 1.6; margin: 0; }
+
+  /* ===== BIO ===== */
+  .bio { display:grid; grid-template-columns:1fr 1.3fr; gap:clamp(32px,6vw,72px); align-items:center; }
+  .bio__card { position:relative; border-radius:var(--radius-xl); overflow:hidden; min-height:500px; border:1px solid var(--sage-100); }
+  .bio__avatar { font-family:var(--font-serif); font-size:160px; font-weight:300; color:rgba(29,158,117,.18); letter-spacing:-0.04em; line-height:1; font-style:italic; }
+  .bio__caption { position:absolute; bottom:20px; left:20px; right:20px; background:rgba(255,255,255,.85); backdrop-filter:blur(8px); padding:10px 16px; border-radius:12px; font-family:ui-monospace,Menlo,monospace; font-size:11px; color:var(--mist); text-align:center; border:1px solid var(--line); }
+  .bio__name { font-size:12px; color:var(--sage); font-weight:500; letter-spacing:.12em; text-transform:uppercase; margin-bottom:10px; }
+  .bio h2 { margin-bottom:20px; color:var(--forest); }
+  .bio__lead { font-size:17px; color:var(--body); line-height:1.75; }
+  .bio__pill-group { display:flex; flex-wrap:wrap; gap:8px; margin:24px 0 28px; padding:0; list-style:none; }
+  .bio__pill { font-size:12px; background:var(--cream); color:var(--body); padding:6px 14px; border-radius:100px; border:1px solid var(--line-warm); }
+  .bio__quote { margin:0; padding:20px 24px; background:var(--cream); border-radius:var(--radius); border:1px solid var(--line-warm); border-left:3px solid var(--sage); font-style:italic; color:var(--forest); font-size:17px; font-family:var(--font-serif); font-weight:300; line-height:1.6; }
+
+  /* ===== TESTIMONIALS ===== */
+  .testim-note { text-align:center; font-size:11.5px; color:var(--mist); font-family:ui-monospace,Menlo,monospace; margin-bottom:32px; }
+  .testim { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .testim__card { background:var(--white); border:1px solid var(--line); border-radius:var(--radius-lg); padding:32px; display:flex; flex-direction:column; transition:box-shadow .25s ease, transform .25s ease; }
+  .testim__card:hover { box-shadow:var(--shadow); transform:translateY(-3px); }
+  .testim__quote-mark { font-family:var(--font-serif); font-size:72px; line-height:.7; color:var(--sage); opacity:.15; display:block; margin-bottom:16px; font-style:italic; }
+  .testim__text { color:var(--body); font-size:16px; line-height:1.7; margin:0 0 20px; font-style:italic; font-family:var(--font-serif); font-weight:300; flex:1; }
+  .testim__who { display:flex; flex-direction:column; gap:2px; padding-top:18px; border-top:1px solid var(--line); }
+  .testim__who strong { color:var(--ink); font-size:13px; font-weight:500; font-family:var(--font-sans); }
+  .testim__who small   { color:var(--mist); font-size:12.5px; font-family:var(--font-sans); }
+  .testim__text { display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden; max-height:112px; transition:max-height .3s ease; }
+  .testim__text.is-expanded { -webkit-line-clamp:unset; overflow:visible; max-height:600px; }
+  .testim__readmore { display:inline-block; color:var(--sage); font-size:13px; font-weight:500; background:none; border:none; padding:6px 0 0; cursor:pointer; font-family:var(--font-sans); line-height:1; }
+  .testim__readmore:hover { text-decoration:underline; }
+  .testim-link { display:block; text-align:center; margin-bottom:32px; color:var(--sage); font-size:14px; font-weight:500; }
+  .testim-link:hover { text-decoration:underline; }
+
+  /* ===== CTA BLOCK ===== */
+  .cta-block { background:var(--forest); color:var(--white); border-radius:var(--radius-xl); padding:clamp(48px,7vw,80px); display:grid; grid-template-columns:1.4fr 1fr; gap:40px; align-items:center; position:relative; overflow:hidden; }
+  .cta-blob { position:absolute; top:-40%; right:-10%; width:60%; height:200%; background:radial-gradient(ellipse at center,rgba(29,158,117,.15) 0%,transparent 60%); pointer-events:none; }
+  .cta-blob-2 { position:absolute; bottom:-50%; left:30%; width:40%; height:150%; background:radial-gradient(ellipse at center,rgba(197,149,74,.08) 0%,transparent 60%); pointer-events:none; }
+  .cta-block h2 { color:var(--white); margin:0 0 12px; font-size:clamp(26px,3vw,36px); }
+  .cta-block p  { color:rgba(255,255,255,.72); margin:0; font-size:16px; line-height:1.7; max-width:48ch; }
+  .cta-block__ctas { display:flex; flex-direction:column; gap:12px; position:relative; z-index:1; }
+
+  /* ===== LOCATION ===== */
+  .loc { display:grid; grid-template-columns:1.1fr 1fr; gap:clamp(32px,5vw,60px); align-items:stretch; }
+  .loc__map { border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow); background:var(--cream-dark); min-height:420px; border:1px solid var(--line); display:flex; flex-direction:column; }
+  .loc__map iframe { width:100%; height:100%; flex:1; border:0; display:block; min-height:420px; }
+  .loc__info h2 { margin-bottom:8px; color:var(--forest); }
+  .loc__info > p { color:var(--mist); margin-bottom:28px; }
+  .loc__row { display:flex; gap:14px; align-items:flex-start; padding:18px 0; border-top:1px solid var(--line); }
+  .loc__row:first-of-type { border-top:0; padding-top:0; }
+  .loc__row .ico { width:42px; height:42px; border-radius:12px; flex-shrink:0; background:var(--sage-50); color:var(--sage); display:grid; place-items:center; }
+  .loc__row .ico svg { width:20px; height:20px; }
+  .loc__row strong { display:block; color:var(--ink); font-size:15px; margin-bottom:4px; font-weight:500; }
+  .loc__row span   { color:var(--body); font-size:14.5px; }
+  .loc__hours { margin:6px 0 0; font-size:13.5px; color:var(--mist); }
+  .loc__hours div { display:flex; justify-content:space-between; max-width:300px; padding:3px 0; }
+
+  /* form */
+  .form { margin-top:28px; background:var(--cream); border:1px solid var(--line-warm); border-radius:var(--radius-lg); padding:28px; }
+  .form h3 { margin:0 0 6px; font-size:20px; color:var(--forest); }
+  .form > p { color:var(--mist); font-size:14px; margin:0 0 22px; }
+  .form__row { display:flex; flex-direction:column; gap:6px; margin-bottom:14px; }
+  .form__row label { font-size:12.5px; font-weight:500; color:var(--ink); }
+  .form__row input, .form__row select, .form__row textarea {
+    width:100%; padding:13px 16px; border:1.5px solid var(--line); border-radius:12px;
+    background:var(--white); font:inherit; font-size:15px; color:var(--ink);
+    transition:border-color .15s ease, box-shadow .15s ease;
+    appearance:none; -webkit-appearance:none;
+  }
+  .form__row input:focus, .form__row select:focus, .form__row textarea:focus { outline:none; border-color:var(--sage); box-shadow:0 0 0 3px rgba(29,158,117,.12); }
+  .form__tiny { font-size:12px; color:var(--mist); margin:12px 0 0; line-height:1.5; }
+  .form__success { display:none; background:var(--sage-50); color:var(--sage-600); padding:14px 18px; border-radius:12px; font-size:14px; margin-top:14px; border:1px solid var(--sage-100); line-height:1.6; }
+  .form.is-sent .form__success { display:block; }
+  .form.is-sent .form__hide  { display:none; }
+
+  /* ===== FOOTER ===== */
+  footer { background:var(--forest); color:rgba(255,255,255,.65); padding:72px 0 32px; }
+  footer .logo { color:var(--white); }
+  footer .logo .logo__fisio { color:rgba(255,255,255,.8); font-weight:300; }
+  footer .logo .logo__smart { color:#6cd3a8; }
+  footer .logo .logo__mark  { background:rgba(255,255,255,.1); }
+  .footer__grid { display:grid; grid-template-columns:1.5fr 1fr; gap:48px; padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,.08); }
+  .footer__grid h4 { color:rgba(255,255,255,.4); font-size:11px; text-transform:uppercase; letter-spacing:.12em; margin-bottom:18px; font-family:var(--font-sans); font-weight:500; }
+  .footer__links { list-style:none; padding:0; margin:0; display:grid; gap:10px; }
+  .footer__links a { color:rgba(255,255,255,.65); font-size:14.5px; transition:color .2s ease; }
+  .footer__links a:hover { color:var(--white); }
+  .footer__intro { max-width:40ch; color:rgba(255,255,255,.5); font-size:14.5px; margin:14px 0 20px; line-height:1.7; }
+  .footer__contact { display:grid; gap:8px; font-size:14px; color:rgba(255,255,255,.65); }
+  .footer__contact a { transition:color .2s ease; }
+  .footer__contact a:hover { color:var(--white); }
+  .footer__right { display:grid; gap:36px; align-content:start; }
+  .footer__bottom { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; font-size:12.5px; color:rgba(255,255,255,.35); padding-top:28px; }
+  .footer__bottom a:hover { color:rgba(255,255,255,.7); }
+
+  /* ===== FLOATING BUTTONS ===== */
+  .float-wa { position:fixed; right:22px; bottom:22px; z-index:60; width:58px; height:58px; border-radius:50%; background:#25D366; color:var(--white); display:grid; place-items:center; box-shadow:0 8px 28px -6px rgba(37,211,102,.5),0 4px 14px -4px rgba(0,0,0,.15); transition:transform .2s ease, box-shadow .2s ease; }
+  .float-wa:hover { transform:scale(1.06); box-shadow:0 12px 36px -6px rgba(37,211,102,.6),0 6px 16px -4px rgba(0,0,0,.2); }
+  .float-wa svg { width:28px; height:28px; }
+  .float-wa__tip { position:absolute; right:70px; top:50%; transform:translateY(-50%); background:var(--forest); color:var(--white); padding:8px 14px; border-radius:10px; font-size:13px; white-space:nowrap; pointer-events:none; opacity:0; transition:opacity .2s ease, transform .2s ease; }
+  .float-wa__tip::after { content:""; position:absolute; right:-5px; top:50%; transform:translateY(-50%); border:5px solid transparent; border-left-color:var(--forest); }
+  .float-wa:hover .float-wa__tip { opacity:1; transform:translateY(-50%) translateX(-3px); }
+
+  .back-top { position:fixed; left:22px; bottom:22px; z-index:60; width:46px; height:46px; border-radius:50%; background:var(--white); color:var(--ink); border:1.5px solid var(--line); display:grid; place-items:center; box-shadow:var(--shadow); opacity:0; pointer-events:none; transform:translateY(12px); transition:opacity .25s ease, transform .25s ease; }
+  .back-top.is-visible { opacity:1; pointer-events:auto; transform:translateY(0); }
+  .back-top:hover { color:var(--sage); border-color:var(--sage); }
+  .back-top svg { width:18px; height:18px; }
+
+  /* ===== SCROLL REVEAL ===== */
+  .reveal { opacity:0; transform:translateY(20px); transition:opacity .75s ease, transform .75s ease; }
+  .reveal.is-in { opacity:1; transform:none; }
+  .reveal-stagger > * { opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal-stagger.is-in > * { opacity:1; transform:none; }
+  .reveal-stagger.is-in > *:nth-child(1)  { transition-delay:.05s; }
+  .reveal-stagger.is-in > *:nth-child(2)  { transition-delay:.12s; }
+  .reveal-stagger.is-in > *:nth-child(3)  { transition-delay:.19s; }
+  .reveal-stagger.is-in > *:nth-child(4)  { transition-delay:.26s; }
+  .reveal-stagger.is-in > *:nth-child(5)  { transition-delay:.33s; }
+  .reveal-stagger.is-in > *:nth-child(6)  { transition-delay:.40s; }
+  .reveal-stagger.is-in > *:nth-child(7)  { transition-delay:.47s; }
+  .reveal-stagger.is-in > *:nth-child(8)  { transition-delay:.54s; }
+  .reveal-stagger.is-in > *:nth-child(9)  { transition-delay:.61s; }
+  .reveal-stagger.is-in > *:nth-child(10) { transition-delay:.68s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal-stagger > * { opacity:1; transform:none; transition:none; }
+    html { scroll-behavior:auto; }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1024px) {
+    .feat { grid-template-columns:1fr 1fr; grid-template-rows:auto; height:auto; }
+    .feat__card--featured { grid-row:span 1; }
+    .feat__card--featured h3 { font-size:20px; }
+  }
+  @media (max-width: 900px) {
+    .hero__overlay {
+      background:
+        linear-gradient(to bottom, rgba(12,55,40,.7) 0%, rgba(12,55,40,.55) 40%, rgba(12,55,40,.8) 100%),
+        linear-gradient(105deg, rgba(12,55,40,.6) 0%, transparent 70%);
+    }
+    .hero__copy { max-width: 100%; }
+    .hero__float-card { right: 16px; bottom: 24px; max-width: 240px; padding: 14px 16px; }
+    .hero__pill { right: 16px; top: 80px; }
+    .hero__stats-grid { grid-template-columns:repeat(2,1fr); gap: 0; }
+    .hero__stat { border-bottom: 1px solid rgba(255,255,255,.1); }
+    .hero__stat:nth-child(2n) { border-right: none; }
+    .hero__stat:nth-last-child(-n+2) { border-bottom: none; }
+    .pillars { grid-template-columns:1fr; }
+    .pillar { border-right:none; border-bottom:1px solid var(--line); }
+    .pillar:last-child { border-bottom:none; }
+    .feat { grid-template-columns:repeat(2,1fr); height:auto; }
+    .svc { grid-template-columns:1fr; }
+    .bio { grid-template-columns:1fr; }
+    .bio__card { max-width:480px; margin:0 auto; min-height:360px; }
+    .testim { grid-template-columns:1fr; }
+    .cta-block { grid-template-columns:1fr; }
+    .loc { grid-template-columns:1fr; }
+    .footer__grid { grid-template-columns:1fr; gap:32px; }
+  }
+  @media (max-width: 640px) {
+    .nav__links { display:none; }
+    .nav__cta .btn--outline { display:none; }
+    .nav__burger { display:inline-flex; }
+    /* Hero: full overlay on mobile for maximum legibility */
+    .hero { min-height: 100svh; min-height: 100dvh; align-items: flex-end; }
+    .hero__overlay {
+      background: linear-gradient(to top, rgba(12,55,40,.95) 0%, rgba(12,55,40,.7) 45%, rgba(12,55,40,.35) 100%);
+    }
+    .hero__content { padding-bottom: clamp(48px,10vw,72px); padding-top: 0; }
+    .hero__bg img { object-position: 65% center; }
+    .hero h1 { font-size: clamp(30px,8vw,42px); }
+    .hero__ctas { flex-direction: column; }
+    .hero__ctas .btn { width: 100%; justify-content: center; }
+    .hero__trust { gap: 14px; }
+    .hero__float-card { display: none; }
+    .hero__pill { top: auto; bottom: calc(clamp(48px,10vw,72px) + 240px); right: 16px; }
+    /* Stats */
+    .hero__stats-grid { grid-template-columns:repeat(2,1fr); }
+    .hero__stat { border-right: 1px solid rgba(255,255,255,.1); border-bottom: 1px solid rgba(255,255,255,.1); padding: 16px 12px; }
+    .hero__stat:nth-child(2n) { border-right: none; }
+    .hero__stat:nth-last-child(-n+2) { border-bottom: none; }
+    .hero__stat-num { font-size: clamp(24px,6vw,34px); }
+    /* Other sections */
+    .feat { grid-template-columns:1fr; }
+    .cta-block { padding:40px 28px; }
+    .bio__avatar { font-size:120px; }
+    .bio__card { min-height:300px; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- ==================== NAV ==================== -->
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="#top" class="logo" aria-label="Fisiosmart inicio">
+      <span class="logo__fisio">fisio</span><span class="logo__smart">smart</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Menú principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#especialidades">Especialidades</a>
+      <a href="#equipo">Equipo</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="nav__cta">
+      <a href="tel:+34916315995" class="btn btn--outline" aria-label="Llamar al 916 315 995">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+        916 315 995
+      </a>
+      <a href="https://wa.me/34644055404" class="btn btn--primary" id="cta-nav">Pedir cita</a>
+      <button class="nav__burger" id="burger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="drawer" id="drawer">
+    <a href="#servicios">Servicios <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></a>
+    <a href="#especialidades">Especialidades <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></a>
+    <a href="#equipo">Equipo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></a>
+    <a href="#contacto">Contacto <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></a>
+    <a href="https://wa.me/34644055404" class="btn btn--primary btn--lg btn--block">Pedir cita por WhatsApp</a>
+    <a href="tel:+34916315995" class="btn btn--outline btn--lg btn--block">Llamar · 916 315 995</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+
+  <!-- Full-screen background image -->
+  <div class="hero__bg" aria-hidden="true">
+    <picture>
+      <source
+        media="(max-width: 640px)"
+        srcset="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&h=1100&crop=center&q=85" />
+      <source
+        media="(max-width: 1024px)"
+        srcset="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&h=900&q=85" />
+      <img
+        src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1920&h=1080&q=85"
+        alt=""
+        fetchpriority="high"
+        decoding="async" />
+    </picture>
+  </div>
+
+  <!-- Dark gradient overlay for legibility -->
+  <div class="hero__overlay" aria-hidden="true"></div>
+
+  <!-- Copy — left-aligned, vertically centered -->
+  <div class="hero__content container">
+    <div class="hero__copy reveal">
+      <div class="hero__eyebrow">
+        <span class="hero__eyebrow-dot"></span>
+        Las Rozas · El Cantizal · Desde 2012
+      </div>
+      <h1>Fisioterapia en <em class="hero__accent">Las Rozas</em> para toda tu familia</h1>
+      <p class="hero__sub">Especialistas en bebés, embarazadas, deportistas y adultos. Trato cercano, tratamientos personalizados y más de 12 años cuidando del barrio.</p>
+
+      <div class="hero__ctas">
+        <a href="https://wa.me/34644055404" class="btn btn--primary btn--lg" id="cta-hero">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.38c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5s1.08 2.9 1.22 3.1c.15.2 2.13 3.25 5.16 4.56.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35zM12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.9-4.45 9.9-9.92C21.94 6.45 17.5 2 12.04 2z"/></svg>
+          Pedir cita por WhatsApp
+        </a>
+        <a href="tel:+34916315995" class="btn btn--outline btn--lg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+          Llamar ahora · 916 315 995
+        </a>
+      </div>
+
+      <div class="hero__trust" id="hero-badges">
+        <div class="hero__trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          12 años en Las Rozas
+        </div>
+        <div class="hero__trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a3 3 0 1 0 6 0 3 3 0 0 0-6 0z"/><path d="M12 2a10 10 0 0 0-3.91 19.2A2 2 0 0 1 10 19.5V18a2 2 0 0 1 2-2 2 2 0 0 1 2 2v1.5a2 2 0 0 0 1.9 1.7A10 10 0 0 0 12 2z"/></svg>
+          Fisio neonatal
+        </div>
+        <div class="hero__trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          Primera consulta orientativa
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+<!-- stats strip -->
+<div class="hero__stats">
+  <div class="container">
+    <div class="hero__stats-grid" id="stats-grid">
+      <div class="hero__stat">
+        <div class="hero__stat-num hero__stat-star">
+          <em data-count="4.8" data-decimals="1">4,8</em>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="hero__stat-label">Reseñas en Google</div>
+      </div>
+      <div class="hero__stat">
+        <div class="hero__stat-num">+<em data-count="12">12</em></div>
+        <div class="hero__stat-label">Años en Las Rozas</div>
+      </div>
+      <div class="hero__stat">
+        <div class="hero__stat-num"><em data-count="10">10</em></div>
+        <div class="hero__stat-label">Tratamientos especializados</div>
+      </div>
+      <div class="hero__stat">
+        <div class="hero__stat-num"><em>∞</em></div>
+        <div class="hero__stat-label">Familias atendidas</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PILLARS ==================== -->
+<section class="section section--white">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Por qué Fisiosmart</span>
+      <h2>Una clínica pensada para cuidar a toda la familia</h2>
+      <p>Rigor clínico, trato humano y tratamientos adaptados a cada etapa de la vida.</p>
+    </div>
+    <div class="pillars reveal-stagger">
+      <div class="pillar">
+        <div class="pillar__num">01</div>
+        <h3>Especialistas en cada etapa de la vida</h3>
+        <p>Desde recién nacidos hasta adultos mayores. Cada tratamiento se adapta a la edad, el cuerpo y el momento vital del paciente.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar__num">02</div>
+        <h3>Trato personalizado, sin masificación</h3>
+        <p>Tu historia clínica es tuya. Tu fisioterapeuta te conoce y hace seguimiento real de tu evolución, sesión tras sesión.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar__num">03</div>
+        <h3>Técnicas manuales + tecnología moderna</h3>
+        <p>Combinamos lo mejor de la escuela española y francesa con equipamiento actual: osteopatía, punción seca, pilates, hipopresivos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FEATURED SPECIALTIES ==================== -->
+<section class="section section--cream" id="especialidades">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Lo que nos diferencia</span>
+      <h2>Especialidades que no encontrarás en cualquier clínica</h2>
+      <p>Somos una de las pocas clínicas de Las Rozas con formación específica en fisioterapia neonatal, pediátrica y de gestantes.</p>
+    </div>
+    <div class="spec-list reveal-stagger">
+
+      <!-- CARD 1 — EMBARAZADAS (image left) -->
+      <article class="spec-card">
+        <div class="spec-card__img">
+          <img src="https://images.unsplash.com/photo-1544126592-807ade215a0b?w=600&q=80" alt="Fisioterapia para embarazadas" loading="lazy" />
+        </div>
+        <div class="spec-card__body">
+          <span class="spec-tag">Embarazadas</span>
+          <h3>El embarazo es uno de los momentos más bonitos de tu vida. El dolor no tiene por qué serlo.</h3>
+          <p class="spec-card__sub">En Fisiosmart ayudamos a futuras mamás a disfrutar del embarazo sin dolor, preparando tu cuerpo para un parto más consciente y una recuperación más rápida.</p>
+          <p class="spec-card__text">Durante el embarazo tu cuerpo cambia profundamente. Esos cambios pueden provocar ciáticas, dorsalgias, cervicalgias y metatarsalgias que hacen el día a día mucho más difícil de lo que debería ser. Contamos con camilla y silla de masaje específicas para gestantes, diseñadas para darte el máximo confort durante cada tratamiento.</p>
+          <ul class="spec-bullets">
+            <li>Masaje calmante general</li>
+            <li>Drenaje linfático manual</li>
+            <li>Reeducación del suelo pélvico</li>
+            <li>Pilates pre y post natal</li>
+            <li>Pilates con bebés</li>
+          </ul>
+          <div class="spec-card__ctas">
+            <a href="https://wa.me/34644055404" class="btn btn--primary">Reserva tu primera consulta</a>
+            <a href="#servicios" class="spec-link">Ver todos los tratamientos</a>
+          </div>
+          <span class="spec-card__num" aria-hidden="true">01</span>
+        </div>
+      </article>
+
+      <!-- CARD 2 — BEBÉS Y NEONATOS (image right) -->
+      <article class="spec-card spec-card--reverse">
+        <div class="spec-card__img">
+          <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&q=80" alt="Fisioterapia neonatal para bebés" loading="lazy" />
+        </div>
+        <div class="spec-card__body">
+          <span class="spec-tag">Bebés y neonatos</span>
+          <h3>Tu bebé no puede decirte qué le duele. Nosotros sí sabemos escucharle.</h3>
+          <p class="spec-card__sub">Somos especialistas en fisioterapia neonatal desde las primeras horas de vida. Si tu bebé llora sin parar, tiene dificultades digestivas o respiratorias, podemos ayudarle.</p>
+          <p class="spec-card__text">Los bebés también necesitan fisioterapia, y cuanto antes se trata, mejor es el resultado. Trabajamos fisioterapia respiratoria (bronquiolitis, asma, fibrosis quística) y fisioterapia digestiva (cólicos del lactante, tránsito intestinal).</p>
+          <ul class="spec-bullets">
+            <li>Fisioterapia respiratoria</li>
+            <li>Fisioterapia digestiva</li>
+            <li>Curso de masaje infantil</li>
+            <li>Pilates con bebés</li>
+          </ul>
+          <div class="spec-card__ctas">
+            <a href="https://wa.me/34644055404" class="btn btn--primary">Cuida a tu bebé hoy</a>
+            <a href="#servicios" class="spec-link">Ver qué tratamos</a>
+          </div>
+          <span class="spec-card__num" aria-hidden="true">02</span>
+        </div>
+      </article>
+
+      <!-- CARD 3 — CURSO DE MASAJE INFANTIL (image left) -->
+      <article class="spec-card">
+        <div class="spec-card__img">
+          <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&q=80" alt="Curso de masaje infantil para padres" loading="lazy" />
+        </div>
+        <div class="spec-card__body">
+          <span class="spec-tag">Masaje infantil</span>
+          <h3>Aprende a calmar, conectar y comunicarte con tu bebé a través del tacto.</h3>
+          <p class="spec-card__sub">Un curso práctico para mamás y papás que quieren aumentar el vínculo con su bebé de forma natural y segura.</p>
+          <p class="spec-card__text">De la mano de personal cualificado, aprenderás a relacionarte y comunicarte con tu bebé a través del masaje, aumentando la complicidad y el bienestar de los dos. Una experiencia que va mucho más allá del masaje — es conexión real.</p>
+          <ul class="spec-bullets">
+            <li>Curso práctico para padres y madres</li>
+            <li>Personal cualificado</li>
+            <li>Aumenta el vínculo con tu bebé</li>
+            <li>Es conexión real</li>
+          </ul>
+          <div class="spec-card__ctas">
+            <a href="https://wa.me/34644055404" class="btn btn--primary">Quiero apuntarme</a>
+          </div>
+          <span class="spec-card__num" aria-hidden="true">03</span>
+        </div>
+      </article>
+
+      <!-- CARD 4 — FISIOTERAPIA INFANTIL (image right) -->
+      <article class="spec-card spec-card--reverse">
+        <div class="spec-card__img">
+          <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=80" alt="Fisioterapia infantil hasta 12 años" loading="lazy" />
+        </div>
+        <div class="spec-card__body">
+          <span class="spec-tag">Fisio infantil</span>
+          <h3>Los niños también se lesionan, también tienen dolores. Y también merecen la mejor atención.</h3>
+          <p class="spec-card__sub">Tratamos y prevenimos las lesiones y dolencias más frecuentes en la infancia, acompañando a tu hijo en un crecimiento sano y activo.</p>
+          <p class="spec-card__text">Durante la niñez es frecuente la aparición de problemas por el crecimiento, la actividad física o malos hábitos posturales.</p>
+          <ul class="spec-bullets">
+            <li>Fisioterapia respiratoria</li>
+            <li>Fisioterapia digestiva</li>
+            <li>Reeducación postural</li>
+            <li>Fisioterapia deportiva infantil</li>
+          </ul>
+          <div class="spec-card__ctas">
+            <a href="https://wa.me/34644055404" class="btn btn--primary">Pide cita para tu hijo</a>
+            <a href="#servicios" class="spec-link">Ver qué tratamos</a>
+          </div>
+          <span class="spec-card__num" aria-hidden="true">04</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ALL SERVICES ==================== -->
+<section class="section section--warm" id="servicios">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Nuestros servicios</span>
+      <h2>Todo lo que podemos hacer por ti</h2>
+      <p>Diez tratamientos pensados para resolver dolores reales, prevenir lesiones y acompañarte en cada etapa.</p>
+    </div>
+    <div class="svc-carousel reveal">
+      <button class="svc-arrow svc-arrow--prev" id="svc-prev" aria-label="Servicio anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="svc-track" id="services-grid"></div>
+      <button class="svc-arrow svc-arrow--next" id="svc-next" aria-label="Servicio siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <div class="svc-dots" id="svc-dots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== BIO ==================== -->
+<section class="section section--white" id="equipo">
+  <div class="container">
+    <div class="bio">
+      <div class="bio__card reveal">
+        <img src="mercedes.png.png" alt="Mercedes Nadal — fisioterapeuta en Fisiosmart Las Rozas" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
+      </div>
+      <div class="reveal">
+        <div class="bio__name">Tu fisioterapeuta en Las Rozas</div>
+        <h2>Mercedes Nadal</h2>
+        <p class="bio__lead">Llevo más de diez años haciendo lo que me apasiona: ayudar a familias enteras a recuperarse, moverse mejor y vivir sin dolor. Me formé entre Madrid y Francia, y traje de allí una forma de tratar más manual, más atenta y más humana.</p>
+        <ul class="bio__pill-group">
+          <li class="bio__pill">Fisioterapia y Osteopatía · Comillas + UAM</li>
+          <li class="bio__pill">Máster Pediátrica · San Pablo CEU</li>
+          <li class="bio__pill">Pilates · UCM</li>
+          <li class="bio__pill">Fisioterapia Neonatal</li>
+          <li class="bio__pill">Formación en Francia</li>
+          <li class="bio__pill">Hospital La Paz · San Rafael</li>
+        </ul>
+        <blockquote class="bio__quote">Cada paciente tiene su historia. Mi trabajo es escucharla y ayudarte a recuperarte.</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TESTIMONIALS ==================== -->
+<section class="section section--cream">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Lo que dicen de nosotros</span>
+      <h2>Pacientes reales, resultados reales</h2>
+      <p>Tres historias de personas que confiaron en nosotros.</p>
+    </div>
+    <a href="https://www.google.com/search?q=fisiosmart&si=AL3DRZHnaVpOpV17tK9mg6av50PE-kRfFRFUaAr9T0Uxmp5eleC9q3GO7ikLphcm8hoyRtBomdvf9dSw3-opsWXhrWQvIKcjFlDYe6ipIXo96hyJzAg8pWM%3D" target="_blank" rel="noopener" class="testim-link">Mira lo que dicen nuestros pacientes en Google →</a>
+    <div class="testim reveal-stagger">
+      <article class="testim__card">
+        <span class="testim__quote-mark">"</span>
+        <p class="testim__text">Llevé a mi hija de 3 años para unas sesiones de masajes por problemas gastrointestinales y la experiencia fue excelente. Merche nos atendió con mucha profesionalidad y una gran habilidad para tratar a niños, lo que hizo que todo fuera muy fácil. Además, el resultado fue muy positivo y notamos una clara mejoría. Clínica muy recomendable.</p>
+        <button class="testim__readmore" aria-expanded="false">Leer más</button>
+        <div class="testim__who">
+          <strong>Mercedes Marín</strong>
+          <small>Fisioterapia infantil · problemas digestivos</small>
+        </div>
+      </article>
+      <article class="testim__card">
+        <span class="testim__quote-mark">"</span>
+        <p class="testim__text">Acudí a la clínica para rehabilitación después de que me operaron el codo izquierdo por una fractura desplazada del olecranon. Cuando empecé estaba muy preocupado porque casi no podía mover el codo. Después de unas pocas sesiones ya casi he recuperado completamente la movilidad y se lo agradezco mucho por la profesionalidad y dedicación.</p>
+        <button class="testim__readmore" aria-expanded="false">Leer más</button>
+        <div class="testim__who">
+          <strong>Luca Godano</strong>
+          <small>Rehabilitación post-operatoria · codo</small>
+        </div>
+      </article>
+      <article class="testim__card">
+        <span class="testim__quote-mark">"</span>
+        <p class="testim__text">No tengo palabras para describir el trato recibido en Fisiosmart. Solo pongo mi cuerpo en manos de Mercedes Nadal y su equipo, mi cuerpo y el de mis niños pequeños con la fisioterapia respiratoria. Además, mejor complemento imposible para cuidarte que sus clases de pilates con máquinas. No te descuidan ni en pandemia con sus clases online. Si queréis unas manos mágicas y un trato perfecto, este es vuestro sitio.</p>
+        <button class="testim__readmore" aria-expanded="false">Leer más</button>
+        <div class="testim__who">
+          <strong>Susana Ramos</strong>
+          <small>Fisioterapia familiar · pilates</small>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CTA BLOCK ==================== -->
+<section class="section section--warm">
+  <div class="container">
+    <div class="cta-block reveal">
+      <div class="cta-blob" aria-hidden="true"></div>
+      <div class="cta-blob-2" aria-hidden="true"></div>
+      <div style="position:relative;z-index:1">
+        <h2>¿Tienes dudas de si podemos ayudarte?</h2>
+        <p>Cuéntanos qué te pasa. La primera consulta es orientativa y sin compromiso — te diremos con franqueza si el tratamiento es para ti.</p>
+      </div>
+      <div class="cta-block__ctas">
+        <a href="https://wa.me/34644055404" class="btn btn--white btn--lg">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.38c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5s1.08 2.9 1.22 3.1c.15.2 2.13 3.25 5.16 4.56.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35zM12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.9-4.45 9.9-9.92C21.94 6.45 17.5 2 12.04 2z"/></svg>
+          Escribir por WhatsApp
+        </a>
+        <a href="tel:+34916315995" class="btn btn--ghost-white btn--lg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+          Llamar · 916 315 995
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== LOCATION + CONTACT ==================== -->
+<section class="section section--white" id="contacto">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Dónde estamos</span>
+      <h2>En el corazón de El Cantizal, Las Rozas</h2>
+      <p>Fácil acceso, aparcamiento en la zona y muy cerca del transporte público.</p>
+    </div>
+    <div class="loc">
+      <div class="loc__map reveal">
+        <iframe
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Calle%20Higuera%208%2C%20Las%20Rozas%20de%20Madrid&output=embed"
+          title="Mapa de Fisiosmart en Calle Higuera 8, Las Rozas"></iframe>
+      </div>
+      <div class="loc__info reveal">
+        <div class="loc__row">
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <strong>Dirección</strong>
+            <span>C/ Higuera 8 · El Cantizal · 28232 Las Rozas, Madrid</span>
+          </div>
+        </div>
+        <div class="loc__row">
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div>
+            <strong>Horario</strong>
+            <div class="loc__hours">
+              <div><span>Lunes – Jueves</span><span>9:30–14:30 · 16:00–22:00</span></div>
+              <div><span>Viernes</span><span>9:30–13:30 · 16:00–21:00</span></div>
+              <div><span>Sábado</span><span>10:00–14:00</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="loc__row">
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="12" rx="2"/><path d="M6 11h12M8 15h2M14 15h2"/></svg>
+          </div>
+          <div>
+            <strong>Transporte y aparcamiento</strong>
+            <span>Aparcamiento gratuito en la zona. Bien comunicado con autobús y a 5 min de la A-6.</span>
+          </div>
+        </div>
+
+        <form class="form" id="contact-form" novalidate>
+          <div class="form__hide">
+            <h3>¿Prefieres que te llamemos?</h3>
+            <p>Déjanos tu teléfono y te contactamos en menos de 24h.</p>
+            <div class="form__row">
+              <label for="f-name">Nombre</label>
+              <input id="f-name" name="name" type="text" required placeholder="Tu nombre" />
+            </div>
+            <div class="form__row">
+              <label for="f-phone">Teléfono</label>
+              <input id="f-phone" name="phone" type="tel" required placeholder="Tu número de contacto" />
+            </div>
+            <div class="form__row">
+              <label for="f-reason">Motivo de consulta</label>
+              <select id="f-reason" name="reason" required>
+                <option value="">Selecciona una opción…</option>
+                <option>Dolor de espalda / cervical / lumbar</option>
+                <option>Fisioterapia para bebé o niño</option>
+                <option>Embarazo o postparto</option>
+                <option>Lesión deportiva</option>
+                <option>Pilates o hipopresivos</option>
+                <option>Tratamiento a domicilio</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block btn--lg">Enviar solicitud</button>
+            <p class="form__tiny">Al enviar aceptas nuestra política de privacidad. No hacemos spam.</p>
+          </div>
+          <div class="form__success">
+            <strong>¡Gracias!</strong> Hemos recibido tu mensaje. Te llamaremos muy pronto.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a href="#top" class="logo">
+          <span class="logo__fisio">fisio</span><span class="logo__smart">smart</span>
+        </a>
+        <p class="footer__intro">Bienestar y salud para toda tu familia. Fisioterapia familiar en Las Rozas desde 2012.</p>
+        <div class="footer__contact">
+          <a href="tel:+34916315995">916 315 995</a>
+          <a href="https://wa.me/34644055404">WhatsApp · 644 055 404</a>
+          <a href="mailto:info@fisiosmart.es">info@fisiosmart.es</a>
+          <span>C/ Higuera 8 · El Cantizal · Las Rozas</span>
+        </div>
+      </div>
+      <div class="footer__right">
+        <div>
+          <h4>Navegación</h4>
+          <ul class="footer__links">
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#especialidades">Especialidades</a></li>
+            <li><a href="#equipo">Equipo</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul class="footer__links">
+            <li><a href="#">Aviso legal</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+            <li><a href="#">Política de cookies</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Fisiosmart · Todos los derechos reservados</span>
+      <span>Diseño cuidado con ♥ en Las Rozas</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ==================== FLOATING BUTTONS ==================== -->
+<a href="https://wa.me/34644055404" class="float-wa" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.38c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5s1.08 2.9 1.22 3.1c.15.2 2.13 3.25 5.16 4.56.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35zM12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.9-4.45 9.9-9.92C21.94 6.45 17.5 2 12.04 2z"/></svg>
+  <span class="float-wa__tip">Escríbenos por WhatsApp</span>
+</a>
+
+<button class="back-top" id="back-top" aria-label="Volver arriba">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<!-- ==================== SCRIPTS ==================== -->
+<script>
+(function(){
+  'use strict';
+
+  /* Services data */
+  const SERVICES = [
+    { title:'Fisioterapia general y osteopatía',   desc:'Contracturas, cervicalgias, lumbalgias y recuperación de lesiones con tratamiento manual.',        icon:'hands',
+      q1:'¿En qué consiste?',   a1:'Tratamiento manual de lesiones y disfunciones del aparato locomotor, combinando fisioterapia clásica con técnicas osteopáticas globales.',
+      q2:'¿Cómo me puede ayudar?', a2:'Alivia contracturas, cervicalgias, lumbalgias, hernias discales, dolor de hombro, tendinitis y acelera la recuperación post-lesión.',
+      q3:'¿Es para mí?',        a3:'Si tienes dolor muscular o articular, independientemente de tu edad o nivel de actividad física, este tratamiento es para ti.' },
+    { title:'Fisioterapia deportiva',               desc:'Para deportistas que quieren recuperarse de una lesión o prevenir las que están por venir.',        icon:'run',
+      q1:'¿En qué consiste?',   a1:'Tratamiento especializado de lesiones producidas por la práctica deportiva, con enfoque en recuperación rápida y prevención de recaídas.',
+      q2:'¿Cómo me puede ayudar?', a2:'Te ayuda a recuperarte de esguinces, roturas fibrilares, tendinitis, sobrecargas musculares y lesiones de rodilla, hombro o tobillo.',
+      q3:'¿Es para mí?',        a3:'Si practicas deporte y quieres volver a entrenar cuanto antes, o quieres evitar que la lesión se repita, este es tu tratamiento.' },
+    { title:'Fisioterapia para embarazadas',        desc:'Alivio del dolor durante el embarazo y preparación consciente para el parto.',                     icon:'mom',
+      q1:'¿En qué consiste?',   a1:'Tratamientos manuales específicos para aliviar los dolores propios del embarazo y preparar el cuerpo para el parto.',
+      q2:'¿Cómo me puede ayudar?', a2:'Alivia ciáticas, dorsalgias, cervicalgias, metatarsalgias, retención de líquidos y tensión en el suelo pélvico.',
+      q3:'¿Es para mí?',        a3:'Si estás embarazada en cualquier trimestre y el dolor está haciendo difícil tu día a día, este tratamiento es para ti.' },
+    { title:'Fisioterapia neonatal y de bebés',     desc:'Cólicos, tortícolis, plagiocefalia, reflujo y acompañamiento del desarrollo motor.',               icon:'baby',
+      q1:'¿En qué consiste?',   a1:'Fisioterapia especializada para recién nacidos y bebés, aplicada con técnicas suaves y seguras desde las primeras horas de vida.',
+      q2:'¿Cómo me puede ayudar?', a2:'Trata cólicos del lactante, tortícolis congénita, plagiocefalia, reflujo, problemas respiratorios y retrasos en el desarrollo motor.',
+      q3:'¿Es para mí?',        a3:'Si tu bebé llora en exceso, no gira bien la cabeza, tiene dificultades digestivas o respiratorias, esta especialidad es para vosotros.' },
+    { title:'Fisioterapia pediátrica (hasta 12 años)', desc:'Escoliosis, postura, pequeñas lesiones y dolores del crecimiento.',                            icon:'kid',
+      q1:'¿En qué consiste?',   a1:'Tratamiento fisioterapéutico adaptado a niños y adolescentes, orientado a corregir problemas posturales, respiratorios y del movimiento.',
+      q2:'¿Cómo me puede ayudar?', a2:'Corrige escoliosis, malas posturas, problemas respiratorios recurrentes y trata lesiones deportivas propias de su edad.',
+      q3:'¿Es para mí?',        a3:'Si tu hijo tiene dolencias físicas, malos hábitos posturales o enfermedades respiratorias frecuentes, este servicio es para él.' },
+    { title:'Curso de masaje infantil',             desc:'Talleres en grupo para padres y madres. Aprende a calmar y conectar con tu bebé.',                 icon:'heart',
+      q1:'¿En qué consiste?',   a1:'Talleres grupales donde padres y madres aprenden técnicas de masaje para aplicar a sus bebés en casa de forma segura y efectiva.',
+      q2:'¿Cómo me puede ayudar?', a2:'Favorece el vínculo afectivo, calma los cólicos, mejora el sueño del bebé y reduce el estrés de los padres.',
+      q3:'¿Es para mí?',        a3:'Si tienes un bebé de 0 a 12 meses y quieres conectar mejor con él y tener herramientas para calmarlo, este curso es para ti.' },
+    { title:'Pilates (suelo y máquinas)',           desc:'Clases reducidas con fisioterapeuta, terapéuticas o de mantenimiento.',                            icon:'pilates',
+      q1:'¿En qué consiste?',   a1:'Clases de pilates terapéutico en grupos reducidos, impartidas por fisioterapeuta, tanto en suelo como en máquinas de reformer.',
+      q2:'¿Cómo me puede ayudar?', a2:'Mejora el dolor de espalda crónico, el tono muscular, la postura, la rigidez y fortalece el core de forma segura.',
+      q3:'¿Es para mí?',        a3:'Si quieres mejorar tu condición física bajo supervisión especializada, con o sin lesión previa, el pilates terapéutico es para ti.' },
+    { title:'Gimnasia abdominal hipopresiva',       desc:'Recupera tu suelo pélvico tras el parto o fortalece el core sin impacto.',                        icon:'core',
+      q1:'¿En qué consiste?',   a1:'Técnica de ejercicio postural y respiratorio que trabaja el suelo pélvico y el abdomen sin aumentar la presión intraabdominal.',
+      q2:'¿Cómo me puede ayudar?', a2:'Trata la incontinencia urinaria, prolapsos, diastasis abdominal, debilidad del suelo pélvico y dolor lumbar crónico.',
+      q3:'¿Es para mí?',        a3:'Si estás en el postparto, tienes problemas de suelo pélvico o quieres fortalecer el core sin impacto, esta técnica es para ti.' },
+    { title:'Mantenimiento y fisio preventiva',     desc:'Sesiones periódicas para evitar recaídas y mantener tu cuerpo en forma.',                         icon:'shield',
+      q1:'¿En qué consiste?',   a1:'Sesiones periódicas de fisioterapia orientadas a mantener el cuerpo en buen estado y prevenir la aparición de lesiones o recaídas.',
+      q2:'¿Cómo me puede ayudar?', a2:'Alivia la tensión muscular acumulada, mejora la rigidez articular y previene que las lesiones que ya has tenido vuelvan a aparecer.',
+      q3:'¿Es para mí?',        a3:'Si ya has pasado por una lesión y no quieres que vuelva, o llevas un ritmo de vida exigente y quieres cuidar tu cuerpo, esto es para ti.' },
+    { title:'Tratamientos a domicilio',             desc:'Para quienes tienen movilidad reducida o prefieren tratarse en casa.',                             icon:'home',
+      q1:'¿En qué consiste?',   a1:'El mismo tratamiento de fisioterapia que en clínica pero en tu domicilio, con todo el material necesario para cada caso.',
+      q2:'¿Cómo me puede ayudar?', a2:'Puedes recibir cualquier tratamiento de fisioterapia sin necesidad de desplazarte, con la misma calidad y atención que en clínica.',
+      q3:'¿Es para mí?',        a3:'Si tienes movilidad reducida, estás en recuperación postoperatoria o simplemente prefieres recibir el tratamiento en casa, este servicio es para ti.' }
+  ];
+
+  const ICONS = {
+    hands:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-4 0v6"/><path d="M14 10V4a2 2 0 0 0-4 0v7"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>',
+    run:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="17" cy="4" r="2"/><path d="M15.5 10l-2 2 3 3v5M9 7l3-2 5 3M7 13l-2 5"/></svg>',
+    mom:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6" r="3"/><path d="M6 21c0-4 3-8 6-8s6 4 6 8"/><path d="M9 17c1 1 3 2 3 4"/></svg>',
+    baby:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h.01M15 12h.01"/><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><path d="M17 7.5a5 5 0 1 0-10 0c0 1 .2 1.8.6 2.6C6.2 10.8 5 12.3 5 14a7 7 0 0 0 14 0c0-1.7-1.2-3.2-2.6-3.9.4-.8.6-1.6.6-2.6z"/></svg>',
+    kid:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M12 10v5l-3 6M12 15l3 6M8 13h8"/></svg>',
+    heart:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
+    pilates: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M12 7v5l-3 4 2 5M12 12l3 4-2 5M7 10c3 2 7 2 10 0"/></svg>',
+    core:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>',
+    shield:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>',
+    home:    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>'
+  };
+
+  const IMAGES = [
+    'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80',
+    'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80',
+    'https://images.unsplash.com/photo-1544126592-807ade215a0b?w=600&q=80',
+    'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&q=80',
+    'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=80',
+    'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&q=80',
+    'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80',
+    'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80',
+    'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=600&q=80',
+    'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=600&q=80'
+  ];
+
+  const CHEV_DOWN = `<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>`;
+  const CHEV_UP   = `<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>`;
+
+  document.getElementById('services-grid').innerHTML = SERVICES.map((s, i) => `
+    <article class="svc__card">
+      <div class="svc__img">
+        <img src="${IMAGES[i]}" alt="${s.title}" loading="${i < 3 ? 'eager' : 'lazy'}" />
+        <span class="svc__badge">${String(i + 1).padStart(2, '0')} / 10</span>
+      </div>
+      <div class="svc__body">
+        <h3>${s.title}</h3>
+        <p class="svc__desc">${s.desc}</p>
+        <div class="svc__sep"></div>
+        <button class="svc__toggle" aria-expanded="false">Saber más ${CHEV_DOWN}</button>
+        <div class="svc__panel" role="region">
+          <div class="svc__panel-inner">
+            <div><p class="svc__panel-q">${s.q1}</p><p class="svc__panel-a">${s.a1}</p></div>
+            <div><p class="svc__panel-q">${s.q2}</p><p class="svc__panel-a">${s.a2}</p></div>
+            <div><p class="svc__panel-q">${s.q3}</p><p class="svc__panel-a">${s.a3}</p></div>
+          </div>
+        </div>
+        <a href="https://wa.me/34644055404" class="svc__cta">
+          Consultar disponibilidad
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </article>
+  `).join('');
+
+  /* Build dot indicators */
+  const dotsEl = document.getElementById('svc-dots');
+  const dots = SERVICES.map((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'svc-dot' + (i === 0 ? ' is-active' : '');
+    d.setAttribute('aria-label', `Ir al servicio ${i + 1}`);
+    dotsEl.appendChild(d);
+    return d;
+  });
+
+  /* Carousel navigation */
+  const track   = document.getElementById('services-grid');
+  const prevBtn = document.getElementById('svc-prev');
+  const nextBtn = document.getElementById('svc-next');
+
+  const getCardW = () => {
+    const c = track.querySelector('.svc__card');
+    return c ? c.offsetWidth + 16 : 0;
+  };
+
+  const updateCarousel = () => {
+    prevBtn.hidden = track.scrollLeft < 8;
+    nextBtn.hidden = track.scrollLeft + track.offsetWidth >= track.scrollWidth - 8;
+    const idx = Math.round(track.scrollLeft / (getCardW() || 1));
+    dots.forEach((d, i) => d.classList.toggle('is-active', i === idx));
+  };
+
+  prevBtn.addEventListener('click', () => track.scrollBy({ left: -getCardW(), behavior: 'smooth' }));
+  nextBtn.addEventListener('click', () => track.scrollBy({ left:  getCardW(), behavior: 'smooth' }));
+  dots.forEach((d, i) => d.addEventListener('click', () =>
+    track.scrollTo({ left: getCardW() * i, behavior: 'smooth' })
+  ));
+  track.addEventListener('scroll', updateCarousel, { passive: true });
+  updateCarousel();
+
+  /* Services accordion — event delegation */
+  document.getElementById('services-grid').addEventListener('click', e => {
+    const toggle = e.target.closest('.svc__toggle');
+    if (!toggle) return;
+    const card   = toggle.closest('.svc__card');
+    const isOpen = card.classList.contains('is-open');
+    /* close all */
+    document.querySelectorAll('#services-grid .svc__card.is-open').forEach(c => {
+      c.classList.remove('is-open');
+      const t = c.querySelector('.svc__toggle');
+      t.setAttribute('aria-expanded', 'false');
+      t.innerHTML = 'Saber más ' + CHEV_DOWN;
+    });
+    /* open clicked if it was closed */
+    if (!isOpen) {
+      card.classList.add('is-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.innerHTML = 'Cerrar ' + CHEV_UP;
+    }
+  });
+
+  /* Nav */
+  const nav    = document.getElementById('nav');
+  const burger = document.getElementById('burger');
+  const drawer = document.getElementById('drawer');
+
+  const onScroll = () => {
+    nav.classList.toggle('is-scrolled', window.scrollY > 6);
+    document.getElementById('back-top').classList.toggle('is-visible', window.scrollY > 600);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  burger.addEventListener('click', () => {
+    const open = nav.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  drawer.addEventListener('click', e => {
+    if (e.target.closest('a')) {
+      nav.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+  });
+
+  /* Back to top */
+  document.getElementById('back-top').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* Scroll reveal */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+
+  /* Stats counter animation */
+  const statsGrid = document.getElementById('stats-grid');
+  if (statsGrid) {
+    const animateCounter = (el) => {
+      const target = parseFloat(el.dataset.count);
+      const decimals = parseInt(el.dataset.decimals || '0');
+      const duration = 1400;
+      const start = performance.now();
+      const update = (now) => {
+        const elapsed = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - elapsed, 3);
+        const value = target * ease;
+        el.textContent = decimals > 0
+          ? value.toFixed(decimals).replace('.', ',')
+          : Math.round(value).toString();
+        if (elapsed < 1) requestAnimationFrame(update);
+        else el.textContent = decimals > 0
+          ? target.toFixed(decimals).replace('.', ',')
+          : target.toString();
+      };
+      requestAnimationFrame(update);
+    };
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          statsGrid.querySelectorAll('em[data-count]').forEach(animateCounter);
+          statsObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+    statsObserver.observe(statsGrid);
+  }
+
+  /* Contact form */
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const name   = form.name.value.trim();
+    const phone  = form.phone.value.trim();
+    const reason = form.reason.value;
+    if (!name || !phone || !reason) {
+      form.querySelectorAll('input, select').forEach(el => { if (!el.value) el.style.borderColor = '#e07a7a'; });
+      return;
+    }
+    form.classList.add('is-sent');
+    setTimeout(() => window.scrollTo({ top: form.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' }), 50);
+  });
+  form.querySelectorAll('input, select').forEach(el => {
+    el.addEventListener('input', () => { el.style.borderColor = ''; });
+  });
+
+})();
+
+/* ===== TESTIMONIALS READ-MORE ===== */
+document.querySelector('.testim').addEventListener('click', function(e) {
+  const btn = e.target.closest('.testim__readmore');
+  if (!btn) return;
+  const text = btn.previousElementSibling;
+  const expanded = text.classList.toggle('is-expanded');
+  btn.textContent = expanded ? 'Leer menos' : 'Leer más';
+  btn.setAttribute('aria-expanded', expanded);
+});
+</script>
+</body>
+</html>
