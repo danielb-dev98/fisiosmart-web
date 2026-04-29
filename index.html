@@ -720,7 +720,7 @@
   /* ===== MOBILE BUG FIXES ===== */
   @media (max-width: 640px) {
     /* 1 — Horizontal scroll */
-    html, body { overflow-x: hidden; }
+    html { overflow-x: hidden; }
     .svc-carousel { overflow: hidden; }
     .svc-arrow { display: none; }
 
@@ -743,6 +743,76 @@
 
     /* 7 — Bio photo: container tall enough for absolute image */
     .bio__card { min-height: 380px; }
+  }
+
+  /* ===== MOBILE BUG FIXES v2 ===== */
+  @media (max-width: 640px) {
+    /* Bug 1 — Nav stays visible: fixed so scroll can never push it away.
+       backdrop-filter removed because WebKit uses it as a containing block,
+       which traps the child .drawer and causes Bug 2. */
+    .nav {
+      position: fixed;
+      width: 100%;
+      z-index: 100;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      background: rgba(250,248,244,.97);
+    }
+    .nav.is-scrolled { background: rgba(250,248,244,1); }
+
+    /* Bug 2 — Drawer fully visible: z-index above nav, fills remaining
+       viewport height, scrollable inside if content overflows. */
+    .drawer {
+      position: fixed;
+      inset: 68px 0 0 0;
+      z-index: 200;
+      max-height: calc(100dvh - 68px);
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    /* Bug 3 — Hero margins: .hero__content's shorthand padding zeroes out
+       the container's left/right padding. Apply padding directly to the copy. */
+    .hero__copy { padding-left: 20px; padding-right: 20px; }
+    .hero__trust { padding-left: 20px; padding-right: 20px; }
+
+    /* Bug 4 — Bio photo: container height so absolute image can fill it */
+    .bio__card { min-height: 420px; position: relative; }
+  }
+
+  /* ===== MOBILE BUG FIXES v3 ===== */
+  @media (max-width: 640px) {
+    /* Bug 1 — Hero: top padding so copy clears the fixed nav */
+    .hero__content { padding-top: 80px; }
+    .hero__copy { padding-left: 20px; padding-right: 20px; }
+    .hero__trust { padding-left: 20px; padding-right: 20px; }
+
+    /* Bug 2 — Drawer CTAs: box-sizing + max-width stops right-edge clipping */
+    .drawer { box-sizing: border-box; overflow-x: hidden; }
+    .drawer .btn { max-width: 100%; margin-left: 0; margin-right: 0; box-sizing: border-box; }
+
+    /* Bug 3 — Nav: !important overrides any conflicting block; body offset for fixed nav */
+    .nav {
+      position: fixed !important;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 100;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      background: rgba(250,248,244,.97);
+    }
+    body { padding-top: 68px; }
+
+    /* Bug 4 — Bio card: explicit height so absolutely-positioned image fills it */
+    .bio__card {
+      min-height: 420px;
+      height: 420px;
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+    }
   }
 </style>
 </head>
@@ -1042,7 +1112,7 @@
   <div class="container">
     <div class="bio">
       <div class="bio__card reveal">
-        <img src="mercedes.png.png" alt="Mercedes Nadal — fisioterapeuta en Fisiosmart Las Rozas" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
+        <img src="mercedes.png" alt="Mercedes Nadal — fisioterapeuta en Fisiosmart Las Rozas" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
       </div>
       <div class="reveal">
         <div class="bio__name">Tu fisioterapeuta en Las Rozas</div>
