@@ -716,6 +716,34 @@
     .bio__avatar { font-size:120px; }
     .bio__card { min-height:300px; }
   }
+
+  /* ===== MOBILE BUG FIXES ===== */
+  @media (max-width: 640px) {
+    /* 1 — Horizontal scroll */
+    html, body { overflow-x: hidden; }
+    .svc-carousel { overflow: hidden; }
+    .svc-arrow { display: none; }
+
+    /* 2 — Hero copy breathing room */
+    .hero__copy { padding-left: 4px; padding-right: 4px; }
+    .hero__trust { padding-left: 4px; padding-right: 4px; }
+
+    /* 3 — Hero CTAs: no clipping */
+    .hero__ctas { overflow: hidden; }
+    .hero__ctas .btn { min-width: 0; }
+
+    /* 4 — Nav drawer: full viewport height */
+    .drawer { max-height: calc(100dvh - 68px); overflow-x: hidden; }
+
+    /* 5 — Floating WhatsApp: safe inset from edges */
+    .float-wa { right: 16px; bottom: 16px; }
+
+    /* 6 — Service carousel: snap starts at card edge */
+    .svc-track { scroll-padding-left: 28px; }
+
+    /* 7 — Bio photo: container tall enough for absolute image */
+    .bio__card { min-height: 380px; }
+  }
 </style>
 </head>
 
